@@ -1,2 +1,2 @@
 # VithallDjango
-使用django 4.0开发的adsb信息管理系统。
+ʹ��django 4.0������adsb��Ϣ����ϵͳ��

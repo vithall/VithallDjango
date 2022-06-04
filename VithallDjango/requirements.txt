@@ -1,0 +1,5 @@
+﻿Django==4.0.5
+docutils
+Pillow
+django-import-export
+django-pure-pagination

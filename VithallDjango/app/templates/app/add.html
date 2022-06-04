@@ -1,0 +1,62 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+
+<h1>this is add informations page</h1>
+
+<form class="form-horizontal" enctype="multipart/form-data" role="form" method="post" action=".">
+    {% csrf_token %}
+    <div class="form-group">
+        <label class="col-sm-2 control-label">HexID</label>
+        <div class="col-sm-10">
+            <input name="HexID" type="text" class="form-control" placeholder="请输入十六进制地址码">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">国家</label>
+        <div class="col-sm-10">
+            <input name="Flag" type="text" class="form-control" placeholder="请输入所属国籍">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">呼号</label>
+        <div class="col-sm-10">
+            <input name="Callsign" type="text" class="form-control" placeholder="请输入呼号">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">注册码</label>
+        <div class="col-sm-10">
+            <input name="Registration" type="text" class="form-control" placeholder="请输入注册码">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">机型</label>
+        <div class="col-sm-10">
+            <input name="Type" type="text" class="form-control" placeholder="请输入机型">
+        </div>
+    </div>
+    <!--上传图片功能-->
+    <div class="form-group">
+        <label  class="col-sm-2 control-label" for="exampleInputFile">机型图片</label>
+        <div class="col-sm-10">
+            <input type="file" name="img"  accept="image/*" >
+            <p class="help-block" style="color:orangered">注意，上传机型图片会修改系统内所有此机型的照片，请慎重上传。</p>
+        </div>
+    </div>
+    <!-- 提交按钮 -->
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default" value="点击新增" />
+        </div>
+    </div>
+    <!-- 抛出异常的区域 -->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <p style="color: red">{{ errorHexID }}</p>
+            </div>
+        </div>
+</form>
+{% endblock %}
