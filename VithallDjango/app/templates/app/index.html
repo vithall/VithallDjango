@@ -1,0 +1,106 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h2>目标信息管理</h2>
+    <p class="lead">本系统收录了大部分ADS-B航空数据，仅供查询。</p>
+</div>
+
+
+<div style="margin-bottom: 10px">
+    <!--新增数据链接-->
+    <a class="btn btn-primary" href="{% url 'add' %}">新增数据</a>
+
+    <!--搜索框-->
+    <div style="float:right; width:250px">
+        <form method="get">
+            <div class="input-group">
+                <input type="text" name="query" class="form-control" placeholder="输入关键字" value="{{ search_data }}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">搜索</button>
+                </span>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<!--所有数据的表格-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">飞机列表</h3>
+    </div>
+    <table class="table table-bordered table-responsive table table-striped">
+        <tr>
+            <th>序号</th>
+            <th align="left">Hex ID</th>
+            <th>国家</th>
+            <th>呼号</th>
+            <th>注册码</th>
+            <th>机型</th>
+            <th>操作</th>
+        </tr>
+        {%for adsbinfo in page_list.object_list %}
+        <tr>
+            <td>{{ forloop.counter|add:page_start}}</td>
+            <td>{{ adsbinfo.HexID|default_if_none:"" }}</td>
+            <td>{{ adsbinfo.Flag|default_if_none:"" }}</td>
+            <td>{{ adsbinfo.Callsign|default_if_none:"" }}</td>
+            <td>{{ adsbinfo.Registration|default_if_none:"" }}</td>
+            <td>{{ adsbinfo.Type|default_if_none:"" }}</td>
+            <td>
+                <a class="btn btn-primary btn-xs" href="/app/{{adsbinfo.id}}/detail">更多</a>
+                <a class="btn btn-danger btn-xs" href="/delete/?id={{adsbinfo.id}}">删除</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+
+
+
+    <!--页码显示模块-->
+    <nav aria-label="Page navigation" style="text-align: center;">
+        <ul class="pagination">
+            <!--判断是否有上一页-->
+            {% if page_list.has_previous %}
+            <li>
+                <a href="?page={{ page_list.previous_page_number }}">&lt;</a>
+            </li>
+            {% else %}
+            <!--没有上一页时，上一页(<)不可选中-->
+            <li class="disabled">
+                <a href="#">&lt;</a>
+            </li>
+            {% endif %}
+
+            {% for page in page_list.pages %}
+                {% if page %}
+                    {% if page == page_list.number %}
+                    <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                    {% else %}
+                    <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="disabled"><a href="">...</a> </li>
+                {% endif %}
+            {% endfor %}
+
+            <!--判断是否有下一页-->
+            {% if page_list.has_next %}
+            <li>
+                <a href="?page={{ page_list.next_page_number }}">&gt;</a>
+            </li>
+            {% else %}
+            <!--没有下一页时，下一页(>)不可选中-->
+            <li class="disabled">
+                <a href="#">&gt;</a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+</div>
+{% endblock %}
