@@ -1,2 +1,2 @@
 # VithallDjango
-ʹ��django 4.0������adsb��Ϣ����ϵͳ��
+基于django 4.0搭建的ADS-B信息查询系统。
