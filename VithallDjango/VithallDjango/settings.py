@@ -25,7 +25,7 @@ SECRET_KEY = '33d439c7-9117-4c08-9517-dd666d3c3484'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -89,6 +89,18 @@ DATABASES = {
     }
 }
 
+#切换为Mysql数据库
+#DATABASES = {
+#        'default': {
+#        'ENGINE': 'django.db.backends.mysql', 
+#        'NAME': 'Mysql57',    #你的数据库名称
+#        'USER': 'seadb',   #你的数据库用户名
+#        'PASSWORD': '123456', #你的数据库密码
+#        'HOST': '', #你的数据库主机，留空默认为localhost
+#        'PORT': '3306', #你的数据库端口
+#    }
+#}
+
 #分页设置
 PAGINATION_SETTINGS = {
     # 分页条当前页前后应该显示的总页数（两边均匀分布，因此要设置为偶数）
@@ -97,18 +109,6 @@ PAGINATION_SETTINGS = {
     'MARGIN_PAGES_DISPLAYED': 2,
     # 当请求了不存在页，显示第一页
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,}
-
-#切换为Mysql数据库
-#DATABASES = {
-#        'default': {
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'aircraft',    #你的数据库名称
-#        'USER': 'root',   #你的数据库用户名
-#        'PASSWORD': '123456', #你的数据库密码
-#        'HOST': '', #你的数据库主机，留空默认为localhost
-#        'PORT': '3306', #你的数据库端口
-#    }
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
