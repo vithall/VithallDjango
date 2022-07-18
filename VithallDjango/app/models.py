@@ -1,7 +1,6 @@
 """
 Definition of models.
 """
-from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -21,8 +20,3 @@ class ADSBImg(models.Model):
 
 
 
-
-#切换为Mysql数据库的对应模型
-#class Message(models.Model):
-#    username=models.CharField(max_length=20,verbose_name="姓名")
-#    password=models. CharField(verbose_name="密码")

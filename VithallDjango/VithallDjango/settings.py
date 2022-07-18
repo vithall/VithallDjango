@@ -82,24 +82,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'VithallDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-#切换为Mysql数据库
 #DATABASES = {
-#        'default': {
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'Mysql57',    #你的数据库名称
-#        'USER': 'seadb',   #你的数据库用户名
-#        'PASSWORD': '123456', #你的数据库密码
-#        'HOST': '', #你的数据库主机，留空默认为localhost
-#        'PORT': '3306', #你的数据库端口
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
+
+#切换为Mysql数据库
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'Mysql57',    #你的数据库名称
+        'USER': 'seadb',   #你的数据库用户名
+        'PASSWORD': '123456', #你的数据库密码
+        'HOST': '', #你的数据库主机，留空默认为localhost
+        'PORT': '3306', #你的数据库端口
+    }
+}
 
 #分页设置
 PAGINATION_SETTINGS = {
