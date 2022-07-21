@@ -141,8 +141,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL = '/static/'
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app', 'templates', 'static'),
+]
+STATIC_URL = 'static/'
+STATIC_ROOT = "D:\Project\VitProject\VithallDjango\VithallDjango\static"
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')  # 设置静态文件路径为主目录下的media文件夹
