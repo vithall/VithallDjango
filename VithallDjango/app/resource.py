@@ -5,11 +5,11 @@ class ADSBInfoResource(resources.ModelResource):
 
     class Meta:
         model = ADSBInfo
-        #¶¨Òåµ¼Èë×Ö¶Î
-        fields = ('HexID', 'Flag', 'Callsign', 'Registration', 'Type',)
-        #¶¨Òåµ¼³ö×Ö¶Î
-        export_order = ('HexID', 'Flag', 'Callsign', 'Registration', 'Type',)
-        #ÅÅ³ı×Ö¶Î£¬µ¼ÈëÊı¾İµÄExcelÀïÓ¦¸ÃÊÇÃ»ÓĞidµÄ
+        #å®šä¹‰å¯¼å…¥å­—æ®µ
+        fields = ('HexID', 'Flag', 'Callsign', 'Registration', 'Type','Leixing')
+        #å®šä¹‰å¯¼å‡ºå­—æ®µ
+        export_order = ('HexID', 'Flag', 'Callsign', 'Registration', 'Type','Leixing')
+        #æ’é™¤å­—æ®µï¼Œå¯¼å…¥æ•°æ®çš„Excelé‡Œåº”è¯¥æ˜¯æ²¡æœ‰idçš„
         exclude = ['id']
-        #ÉèÖÃÖ÷¼ü×Ö¶Î£¬Èç¹ûÓĞµØÖ·ÂëÖØ¸´µÄÇé¿ö£¬Ôò¸üĞÂÒÑÓĞµÄ×Ö¶Î£¬¶ø²»»áµ¼ÖÂµØÖ·ÂëÖØ¸´
+        #è®¾ç½®ä¸»é”®å­—æ®µï¼Œå¦‚æœæœ‰åœ°å€ç é‡å¤çš„æƒ…å†µï¼Œåˆ™æ›´æ–°å·²æœ‰çš„å­—æ®µï¼Œè€Œä¸ä¼šå¯¼è‡´åœ°å€ç é‡å¤
         import_id_fields = ['HexID']

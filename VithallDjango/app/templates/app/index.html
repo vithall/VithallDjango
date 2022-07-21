@@ -40,6 +40,7 @@
             <th>呼号</th>
             <th>注册码</th>
             <th>机型</th>
+            <th>类型</th>
             <th>操作</th>
         </tr>
         {%for adsbinfo in page_list.object_list %}
@@ -50,6 +51,7 @@
             <td>{{ adsbinfo.Callsign|default_if_none:"" }}</td>
             <td>{{ adsbinfo.Registration|default_if_none:"" }}</td>
             <td>{{ adsbinfo.Type|default_if_none:"" }}</td>
+            <td>{{ adsbinfo.Leixing|default_if_none:"" }}</td>
             <td>
                 <a class="btn btn-primary btn-xs" href="/app/{{adsbinfo.id}}/detail">更多</a>
                 <a class="btn btn-danger btn-xs" href="/delete/?id={{adsbinfo.id}}">删除</a>

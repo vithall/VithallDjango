@@ -29,7 +29,7 @@
         <label class="col-sm-2 control-label" for="exampleInputFile">修改机型图片</label>
         <div class="col-sm-10">
             <input type="file" name="img" accept="image/*">
-            <p class="help-block" style="color: orangered">注意，修改机型图片会修改系统内所有此机型的照片，请慎重上传。</p>
+            <p class="help-block" style="color: orangered">注意，修改机型图片会修改系统内所有同一机型的照片，请慎重上传。</p>
         </div>
     </div>
 
@@ -68,6 +68,12 @@
         <label class="col-sm-2 control-label">机型</label>
         <div class="col-sm-10">
             <input name="Type" type="text" class="form-control" value="{{adsbinfo.Type|default_if_none:""}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">类型</label>
+        <div class="col-sm-10">
+            <input name="Leixing" type="text" class="form-control" value="{{adsbinfo.Leixing|default_if_none:""}}">
         </div>
     </div>
     <!-- 修改提交按钮 -->

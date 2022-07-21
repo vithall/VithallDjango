@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '33d439c7-9117-4c08-9517-dd666d3c3484'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -98,6 +98,7 @@ DATABASES = {
         'PASSWORD': '123456', #你的数据库密码
         'HOST': 'localhost', #你的数据库主机，留空默认为localhost
         'PORT': '3306', #你的数据库端口
+        'OPTIONS' : { 'charset' : 'utf8mb4' },
     }
 }
 
@@ -141,11 +142,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app', 'templates', 'static'),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'app', 'templates', 'static'),
+#]
 STATIC_URL = 'static/'
-STATIC_ROOT = "D:\Project\VitProject\VithallDjango\VithallDjango\static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')  # 设置静态文件路径为主目录下的media文件夹
